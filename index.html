@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+        integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="style.css">
+    <title>AMPA INTERNSHIP</title>
+</head>
+
+<body>
+    <section class="container">
+        <div id="mainSite">
+            <div id="filters">
+                <ul class="left">
+                    <li>
+                        <select name="category" id="category">
+                            <option value="all">- All Products</option>
+                            <option value="hoodies">- Hoodies</option>
+                            <option value="shirts">- Shirts</option>
+                            <option value="shorts">- Shorts</option>
+                        </select>
+                    </li>
+                    <li class="sizes">
+                        <select name="sizes" id="size">
+                            <option value="all">Size</option>
+                            <option value="medium">M</option>
+                            <option value="large">L</option>
+                            <option value="extraLarge">XL</option>
+                        </select>
+                    </li>
+                    <li>
+                        <a href="" id="reset"><i class="fa-solid fa-rotate-left"></i>Reset</a>
+                    </li>
+                </ul>
+                <ul class="right">
+                    <li class="search">
+                        <input type="text" id="srch" placeholder="Search Product" onkeyup="search()">
+                    </li>
+                    <li>
+                        <button onclick="goToSummary()" id="addToCartButton">Go To Cart</button>
+                    </li>
+                </ul>
+            </div>
+            <div class="navbar">
+                <div class="one">
+                    <h5>Image</h5>
+                    <h5>Name</h5>
+                </div>
+                <div class="two">
+                    <select name="color" id="color">
+                        <option value="all">Color</option>
+                        <option value="Red">Red</option>
+                        <option value="Black">Black</option>
+                        <option value="Blue">Blue</option>
+                        <option value="Grey">Grey</option>
+                    </select>
+                    <select name="stock" id="stock">
+                        <option value="all">Stock</option>
+                        <option value="inStock">In stock</option>
+                        <option value="outStock">Out of stock</option>
+                    </select>
+                    <select name="price" id="price">
+                        <option value="all">Price</option>
+                        <option value="35">$35.00</option>
+                        <option value="40">$40.00</option>
+                        <option value="50">$50.00</option>
+                    </select>
+                </div>
+                <div class="three">
+                    <h5>Buy</h5>
+                </div>
+            </div>
+            <div class="product-list" id="product-list">
+                <div class="hoodies product all small medium Red inStock 35">
+                    <img class="shop-item-image" src="./images/hoodie1.jpg" alt="Hoodie 1">
+                    <div class="p-details">
+                        <span class="shop-item-title">Woo Ninja</span>
+                        <span class="shop-item-color">Red</span>
+                        <i class="fa-solid fa-face-smile stock"> In Stock</i>
+                        <span class="shop-item-price">$35.00</span>
+                        <button class="sub" onclick="decrementValue(this)" id="btns5"><i
+                                class="fa-solid fa-cart-shopping cart"></i></button>
+                        <input type="text" name="qty" class="qty" id="qty1" value="0" />
+                        <button class="add" onclick="incrementValue(this)" id="btns1"><i
+                                class="fa-solid fa-cart-shopping cart"></i></button>
+                        <button class="btn shop-item-button" type="button">Add to cart</button>
+                    </div>
+                </div>
+                <div class="hoodies product all medium large Black outStock 40">
+                    <img class="shop-item-image" src="./images/hoodie2.jpg" alt="Hoodie 2">
+                    <div class="p-details">
+                        <span class="shop-item-title">Woo Logo</span>
+                        <span class="shop-item-color">Black</span>
+                        <i class="fa-solid fa-face-frown nostock"> Out of Stock</i>
+                        <span class="shop-item-price">$40.00</span>
+                        <button class="sub" onclick="decrementValue(this)" id="btns6"><i
+                                class="fa-solid fa-cart-shopping cart"></i></button>
+                        <input type="text" name="qty" class="qty" id="qty2" value="0" />
+                        <button class="add" onclick="incrementValue(this)" id="btns2"><i
+                                class="fa-solid fa-cart-shopping cart"></i></button>
+                        <button class="btn disable-item-button" type="button" disabled>Add to cart</button>
+                    </div>
+                </div>
+                <div class="hoodies product all small extraLarge Blue inStock 35">
+                    <img class="shop-item-image" src="./images/hoodie3.jpg" alt="Hoodie 3">
+                    <div class="p-details">
+                        <span class="shop-item-title">Patient Ninja</span>
+                        <span class="shop-item-color">Blue</span>
+                        <i class="fa-solid fa-face-smile stock"> In Stock</i>
+                        <span class="shop-item-price">$35.00</span>
+                        <button class="sub" onclick="decrementValue(this)" id="btns7"><i
+                                class="fa-solid fa-cart-shopping cart"></i></button>
+                        <input type="text" name="qty" class="qty" id="qty3" value="0" />
+                        <button class="add" onclick="incrementValue(this)" id="btns3"><i
+                                class="fa-solid fa-cart-shopping cart"></i></button>
+                        <button class="btn shop-item-button" type="button">Add to cart</button>
+                    </div>
+                </div>
+                <div class="hoodies product all medium extraLarge Grey inStock 50">
+                    <img class="shop-item-image" src="./images/hoodie4.jpg" alt="Hoodie 4">
+                    <div class="p-details">
+                        <span class="shop-item-title">Ninja Silhoute</span>
+                        <span class="shop-item-color">Grey</span>
+                        <i class="fa-solid fa-face-smile stock"> In Stock</i>
+                        <span class="shop-item-price">$50.00</span>
+                        <button class="sub" onclick="decrementValue(this)" id="btns8"><i
+                                class="fa-solid fa-cart-shopping cart"></i></button>
+                        <input type="text" name="qty" class="qty" id="qty4" value="0" />
+                        <button class="add" onclick="incrementValue(this)" id="btns4"><i
+                                class="fa-solid fa-cart-shopping cart"></i></button>
+                        <button class="btn shop-item-button" type="button">Add to cart</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div id="summarybox">
+            <i class="fa-solid fa-xmark" id="close" onclick="hide()"></i>
+            <div id="summaryMain">
+                <div id="summaryLeft">
+                    <div class="cart-items">
+                        <div class="cart-row">
+                            
+                        </div>
+                    </div>
+                </div>
+                <div id="summaryRight">
+                    <h2>Cart totals</h2>
+                    <ul id="cart1">
+                        <li>
+                            <h6>Subtotal</h6>
+                        </li>
+                        <li>
+                            <h6 class="blue">$100.00</h6>
+                        </li>
+                    </ul>
+                    <hr>
+                    <ul id="cart2">
+                        <li>
+                            <h4>Total</h4>
+                        </li>
+                        <li>
+                            <h4 class="blue">$100.00</h4>
+                        </li>
+                    </ul>
+                    <p id="proceedOut1" onclick="thankyou()">PROCEED TO CHECKOUT</p>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section>
+        <div id="thankpara">
+            <a href="index.html" id="thank"><b>THANK YOU</b></a>
+        </div>
+    </section>
+</body>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script src="app.js" async></script>
+</html>
